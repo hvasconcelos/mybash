@@ -1,4 +1,11 @@
-## Bash Profile Scripts to manage Enviroment
+## Manage different Bash Enviroments with profiles
+
+### To Install 
+    
+    git clone git@github.com:hvasconcelos/mybash.git
+    cd mybash 
+    ln -sf `$pwd`/.bashrc ~/.bashrc
+    ln -sf `$pwd`/.bash ~/.bash
 
 ### Create a new bash Profile 
 
@@ -6,7 +13,7 @@
     chmod +ux .bash/profiles/<profile_name>
 
 ### Activate the profile in vim .bashrc
-  
+    
     set_profile <profile_name>
 
 ### License
