@@ -1,0 +1,7 @@
+alias mvnp='mvn package'
+alias mvncp='mvn clean package'
+alias mvnc='mvn clean'
+alias mvnt='mvn test'
+alias mvni='mvn install'
+alias mvnci='mvn clean install'
+alias mvnd='mvn deploy'
