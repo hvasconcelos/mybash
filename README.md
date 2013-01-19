@@ -1,4 +1,8 @@
-## Manage different Bash Enviroments with profiles
+## Advanced features for your Bash Shell
+
+* Profiles: Manage the bash shell enviromment for each machine
+* Shortcuts: Create shortcuts for important filesystems paths
+* Aliases: Aliases for your most important tools
 
 ### To Install 
     
@@ -12,9 +16,23 @@
     > .bash/profiles/<profile_name>
     chmod +ux .bash/profiles/<profile_name>
 
-### Activate the profile in vim .bashrc
+### Select the profile in vim .bashrc
     
     set_profile <profile_name>
+
+### Create a shorcut to a filesystem path
+
+In a profile ".bash/profiles/<profile_name>" add something like 
+    
+    addidir <shortcutname> <PATH>
+
+### List your shortcuts 
+
+    lidir
+
+### Goto to a filesystem path over a shorcut
+
+    goto <shortcutname> 
 
 ### License
 
