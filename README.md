@@ -15,14 +15,32 @@
 
     > .bash/profiles/<profile_name>
     chmod +ux .bash/profiles/<profile_name>
+   
+Example:
+
+    vim .bash/profiles/macbookpro_home
+
+    export_dir_after /Users/hcv/Desktop/Android/sdk/tools
+    export_dir_after /Users/hcv/Desktop/Android/sdk/platform-tools
+    export_dir_after ~/bin
+    export_dir_before /usr/local/sbin
+    export_dir_before /usr/local/bin
+    addidir projs /Users/hcv/Desktop/beartouch/Projects
+    addidir blib /Users/hcv/Desktop/beartouch/Libraries
+
+    chmod +ux .bash/profiles/macbookpro_home
 
 ### Select the profile in vim .bashrc
     
     set_profile <profile_name>
+    
+Example:
+
+    set_profile macbookpro_home
 
 ### Create a shorcut to a filesystem path
 
-In a profile ".bash/profiles/<profile_name>" add something like 
+In a profile like ".bash/profiles/macbookpro_home" add something like 
     
     addidir <shortcutname> <PATH>
 
