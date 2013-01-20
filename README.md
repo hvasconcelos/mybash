@@ -9,6 +9,7 @@
     git clone git@github.com:hvasconcelos/mybash.git
     cd mybash 
     ln -sf `$pwd`/.bashrc ~/.bashrc
+    ln -sf `$pwd`/.bash_profile ~/.bash_profile
     ln -sf `$pwd`/.bash ~/.bash
 
 ### Create a new bash Profile 
@@ -25,8 +26,8 @@ Example:
     export_dir_after ~/bin
     export_dir_before /usr/local/sbin
     export_dir_before /usr/local/bin
-    addidir projs /Users/hcv/Desktop/beartouch/Projects
-    addidir blib /Users/hcv/Desktop/beartouch/Libraries
+    iladd projs /Users/hcv/Desktop/beartouch/Projects
+    iladd blib /Users/hcv/Desktop/beartouch/Libraries
 
     chmod +ux .bash/profiles/macbookpro_home
 
@@ -40,17 +41,18 @@ Example:
 
 ### Create a shorcut to a filesystem path
 
-In a profile like ".bash/profiles/macbookpro_home" add something like 
+In a profile file like ~/.bash/profiles/macbookpro_home  or ~/.bash_profile add 
+the next line  to add a new shortcut 
     
-    addidir <shortcutname> <PATH>
+    iladd <shortcutname> <PATH>
 
 ### List your shortcuts 
 
-    lidir
+    ills
 
 ### Goto to a filesystem path over a shorcut
 
-    goto <shortcutname> 
+    ilgo <shortcutname> 
 
 ### License
 

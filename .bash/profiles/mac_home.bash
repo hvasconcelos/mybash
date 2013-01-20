@@ -11,7 +11,7 @@ export_dir_before /usr/local/bin
 export_dir_after /usr/local/share/npm/bin
 export EDITOR='/bin/vim'
 alias gotop='cd ~/Desktop/beartouch/Projects'
-addidir projs /Users/heldervasconcelos/Desktop/beartouch/Projects
-addidir blib /Users/heldervasconcelos/Desktop/beartouch/Libraries
-addidir smss ~/Desktop/beartouch/Projects/sms_scheduler_git
-addidir ddserver ~/Desktop/beartouch/Projects/droidserver/
+iladd projs /Users/heldervasconcelos/Desktop/beartouch/Projects
+iladd blib /Users/heldervasconcelos/Desktop/beartouch/Libraries
+iladd smss ~/Desktop/beartouch/Projects/sms_scheduler_git
+iladd ddserver ~/Desktop/beartouch/Projects/droidserver/

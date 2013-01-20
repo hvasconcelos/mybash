@@ -16,11 +16,11 @@ export_dir_after() {
   export PATH=$PATH:$*
 }
 
-addidir(){
+iladd(){
   echo "$1:$2" >> $HOME/.bash/IDIR
 }
 
-lidir(){
+ills(){
   dirs=`cat $HOME/.bash/IDIR`
   for entry in $dirs; do
     name=`echo $entry | awk -F : '{print $1}'`
@@ -29,7 +29,7 @@ lidir(){
   done
 }
 
-goto(){
+ilgo(){
   if [[ $1 ]]; then
     dirs=`cat $HOME/.bash/IDIR`
     for entry in $dirs; do
@@ -62,7 +62,3 @@ set_profile(){
 > $HOME/.bash/IDIR
 load_dir $HOME/.bash/plugin
 load_dir $HOME/.bash/alias
-
-if [[ -e /Users/heldervasconcelos/.profile ]]; then
-    . /Users/heldervasconcelos/.profile
-fi
