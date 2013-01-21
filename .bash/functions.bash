@@ -59,10 +59,17 @@ set_profile(){
     echo "Error: Profile $1 doesn't exist" 
   fi
 }
+
+list_profiles(){
+ for profile in `ls $HOME/.bash/profiles/`; do
+    echo $profile
+ done
+}
+
 > $HOME/.bash/IDIR
 load_dir $HOME/.bash/plugin
 load_dir $HOME/.bash/alias
 
-if [[ -e /Users/heldervasconcelos/.profile ]]; then
-    . /Users/heldervasconcelos/.profile
+if [[ -e $HOME/.profile ]]; then
+    . $HOME/.profile
 fi
