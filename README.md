@@ -12,6 +12,7 @@
     ln -sf `$pwd`/.bash_profile ~/.bash_profile
     ln -sf `$pwd`/.bash ~/.bash
 
+
 ### Create a new bash Profile 
 
     > .bash/profiles/<profile_name>
