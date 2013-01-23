@@ -15,3 +15,4 @@ iladd projs /Users/heldervasconcelos/Desktop/beartouch/Projects
 iladd blib /Users/heldervasconcelos/Desktop/beartouch/Libraries
 iladd smss ~/Desktop/beartouch/Projects/sms_scheduler_git
 iladd ddserver ~/Desktop/beartouch/Projects/droidserver/
+export PS1='[\[\e[1;34m\]\u@macbookpro\[\e[0m\]..\W] '
