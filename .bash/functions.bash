@@ -68,6 +68,19 @@ myprofls(){
  done
 }
 
+myisuptodate(){
+  cd $HOME/.mybash
+  git fetch -q origin 
+  here=`cat $HOME/.mybash/.git/refs/heads/master`
+  origin=`cat $HOME/.mybash/.git/refs/remotes/origin/master`
+  if [[ $here != $origin ]]; then
+    echo "Please update to version=[$origin]"
+    #echo "Updating to $origin"
+    #git pull origin master
+  fi
+  cd $HOME
+}
+
 > $HOME/.bash/IDIR
 myloaddir $HOME/.bash/plugin
 myloaddir $HOME/.bash/alias

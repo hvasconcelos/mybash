@@ -8,10 +8,7 @@
     
     git clone git@github.com:hvasconcelos/mybash.git
     cd mybash 
-    ln -sf `$pwd`/.bashrc ~/.bashrc
-    ln -sf `$pwd`/.bash_profile ~/.bash_profile
-    ln -sf `$pwd`/.bash ~/.bash
-
+    ./install.sh
 
 ### Create a new bash Profile 
 
