@@ -1,0 +1,3 @@
+Features:
+- Install mybash appending a invocation to bash_profile
+- Update code when there is a new commit in origin/master head 
