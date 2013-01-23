@@ -1,6 +1,6 @@
 # Helder Vasconcelos Mac Book Pro <heldervasc@bearstouch.com>
 # .bash_rc
-export PS1='[\[\e[1;32m\]\u@\h \[\e[0m\] \W ]'
+export PS1='[\[\e[1;34m\]\u@\h\[\e[0m\]..\W] '
 
 load_dir() {
   if [[ -d $1 ]]; then
