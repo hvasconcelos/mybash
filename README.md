@@ -20,39 +20,40 @@
 Example:
 
     vim .bash/profiles/macbookpro_home
-
-    export_dir_after /Users/hcv/Desktop/Android/sdk/tools
-    export_dir_after /Users/hcv/Desktop/Android/sdk/platform-tools
-    export_dir_after ~/bin
-    export_dir_before /usr/local/sbin
-    export_dir_before /usr/local/bin
-    iladd projs /Users/hcv/Desktop/beartouch/Projects
-    iladd blib /Users/hcv/Desktop/beartouch/Libraries
+    # Export after PATH 
+    myexpa /Users/hcv/Desktop/Android/sdk/tools
+    myexpa /Users/hcv/Desktop/Android/sdk/platform-tools
+    myexpa ~/bin
+    # Export before PATH
+    myexpb /usr/local/sbin
+    myexpb /usr/local/bin
+    myladd projs /Users/hcv/Desktop/beartouch/Projects
+    myladd blib /Users/hcv/Desktop/beartouch/Libraries
 
     chmod +ux .bash/profiles/macbookpro_home
 
-### Select the profile in vim .bashrc
+### Select the profile in vim .bash_profile
     
-    set_profile <profile_name>
+    myprofset <profile_name>
     
 Example:
 
-    set_profile macbookpro_home
+    myprofset macbookpro_home
 
 ### Create a shorcut to a filesystem path
 
 In a profile file like ~/.bash/profiles/macbookpro_home  or ~/.bash_profile add 
 the next line  to add a new shortcut 
     
-    iladd <shortcutname> <PATH>
+    myladd <shortcutname> <PATH>
 
 ### List your shortcuts 
 
-    ills
+    mylls
 
 ### Goto to a filesystem path over a shorcut
 
-    ilgo <shortcutname> 
+    mylgo <shortcutname> 
 
 ### License
 

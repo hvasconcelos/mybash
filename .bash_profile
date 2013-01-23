@@ -8,7 +8,7 @@
 . $HOME/.bash/functions.bash
 
 # Initialize with profile mac_home
-set_profile mac_home
+myprofset mac_home
 
 #Execute the .bashrc if exists
 [[ -f ~/.bashrc ]] && . ~/.bashrc
