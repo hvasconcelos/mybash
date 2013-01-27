@@ -96,7 +96,7 @@ mybash_update(){
 mybash_version(){
   echo "mybash version =$(cat $install_dir/.git/refs/heads/master)"
 }
-
+mybash_update
 > $HOME/.mybash/IDIR
 myloaddir $HOME/.mybash/plugin
 myloaddir $HOME/.mybash/alias
