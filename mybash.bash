@@ -4,7 +4,7 @@ export PS1='[\[\e[1;34m\]\u@\h\[\e[0m\]..\W] '
 
 myloaddir() {
   if [[ -d $1 ]]; then
-    files=`find $1 -name *.bash`
+    files=`find $1 -name *.my`
     for file in $files; do
       #echo "Loading file: $file"
       . $file
@@ -52,18 +52,24 @@ mylgo(){
   fi
 }
 
+_mylgo(){
+  COMPREPLY=()
+  [[ -e ~/.bash/IDIR ]] && COMPREPLY=$(cat ~/.bash/IDIR | cut -d ':' -f 1)
+}
+complete -F _mylgo mylgo
+
 myprofset(){
-  if [[ -e $HOME/.bash/profiles/$1 ]]; then 
+  if [[ -e $HOME/.bash/profiles/$1.my ]]; then 
     echo $1 > $HOME/.bash/PROFILE
     echo "Loading Profile [ $1 ]"
-    . $HOME/.bash/profiles/$1
+    . $HOME/.bash/profiles/$1.my
   else
     echo "Error: Profile $1 doesn't exist" 
   fi
 }
 
 myprofls(){
- for profile in `ls $HOME/.bash/profiles/`; do
+ for profile in `ls $HOME/.bash/profiles/*.my`; do
     echo $profile
  done
 }

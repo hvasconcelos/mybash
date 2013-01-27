@@ -1,0 +1,5 @@
+# Load mybash enviroment
+. $HOME/.mybash/mybash.bash
+
+# Initialize your profile
+# myprofset <profile_name>

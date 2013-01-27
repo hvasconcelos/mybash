@@ -4,45 +4,36 @@
 
 install_dir=$HOME/.mybash
 
-link_files(){
-  
-  ln -sf $install_dir/.bash_profile ~/.bash_profile
-  ln -sf $install_dir/.bash ~/.bash
-}
-
-backup(){
-  
-  files_to_backup="$HOME/.bash_profile \
-                  $HOME/.bash \
-                  $HOME/.mybash"
-
-  for file in $files_to_backup; do 
-    if [[ -h $file ]]; then
-       echo "Removing Symlink=$file "
-       rm -f $file
-    elif [[ -e $file ]]; then 
-        echo "Backing Up $file to $file.back"
-        rm -rf $file.back
-        mv $file $file.back
+first_time_install(){
+  version=`cat .git/refs/remotes/origin/master`
+  echo "Installing mybash on your system commit=[$version]"
+  mkdir -p $install_dir 
+  bash_login_files="$HOME/.bash_profile
+                    $HOME/.bash_login 
+                    $HOME/.profile"
+  mkdir -p $install_dir
+  cp -r * $install_dir/ 
+  cp -r .git $install_dir/
+  for bl in $bash_login_files; do
+    if [[ -e $bl ]]; then 
+      mybash_install=$(cat $bl  | grep -c ". \$HOME/.mybash/mybash.bash")
+      if [[ $mybash_install -eq 0 ]]; then
+        cat .bash_profile_temp >> $bl
+      fi
+      return 0
     fi
   done
+  cat .bash_profile_temp > ${bash_login_files[0]}
 }
 
 install_files(){
   
-  mkdir -p $install_dir
-  files_to_install=".bash_profile \
-                  .bash \
-                  .git"
-
-  for file in $files_to_install; do
-    echo "Installing $file..."
-    cp -rf $file $install_dir/$file     
-  done
+  if [[ ! -e $install_dir ]]; then 
+    first_time_install
+  else
+    cd $install_dir
+    git fetch
+    echo "Updating to $(cat .git/refs/remotes/origin/master)" 
+  fi
 }
-
-version=`cat .git/refs/remotes/origin/master`
-echo "Installing mybash on your system commit=[$version]"
-backup
 install_files
-link_files
