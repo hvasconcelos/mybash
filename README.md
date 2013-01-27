@@ -12,12 +12,12 @@
 
 ### Create a new bash Profile 
 
-    > .bash/profiles/<profile_name>
-    chmod +ux .bash/profiles/<profile_name>
+    > .mybash/profiles/<profile_name>.bash
+    chmod +ux .mybash/profiles/<profile_name>.bash
    
 Example:
 
-    vim .bash/profiles/macbookpro_home
+    vim .mybash/profiles/macbookpro_home.bash
     # Export after PATH 
     myexpa /Users/hcv/Desktop/Android/sdk/tools
     myexpa /Users/hcv/Desktop/Android/sdk/platform-tools
@@ -28,9 +28,9 @@ Example:
     myladd projs /Users/hcv/Desktop/beartouch/Projects
     myladd blib /Users/hcv/Desktop/beartouch/Libraries
 
-    chmod +ux .bash/profiles/macbookpro_home
+    chmod +ux .mybash/profiles/macbookpro_home.bash
 
-### Select the profile in vim .bash_profile
+### Select the profile in vim .bash_profile.bash
     
     myprofset <profile_name>
     
@@ -40,7 +40,7 @@ Example:
 
 ### Create a shorcut to a filesystem path
 
-In a profile file like ~/.bash/profiles/macbookpro_home  or ~/.bash_profile add 
+In a profile file like ~/.bash/profiles/macbookpro_home.bash  or ~/.bash_profile add 
 the next line  to add a new shortcut 
     
     myladd <shortcutname> <PATH>
