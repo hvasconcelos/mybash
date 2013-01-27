@@ -44,9 +44,7 @@ mybash_update(){
     echo "Updated mybash sucessfully to version $remote_mcomm"
     return 0
 }
-mybash_version(){
-  echo "mybash version =$(cat .git/refs/heads/master)"
-}
+
 install_files(){
   
   if [[ ! -e $install_dir ]]; then 

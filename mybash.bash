@@ -7,7 +7,7 @@ install_log_file=$install_dir/mybash_install.log
 
 myloaddir() {
   if [[ -d $1 ]]; then
-    files=`find $1 -name *.bash`
+    files=`find $1 -iname  "*.bash"` 
     for file in $files; do
       . $file
     done
