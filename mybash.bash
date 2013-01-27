@@ -55,8 +55,11 @@ mylgo(){
 }
 
 _mylgo(){
-  COMPREPLY=()
-  [[ -e ~/.mybash/IDIR ]] && COMPREPLY=$(cat ~/.mybash/IDIR | cut -d ':' -f 1)
+  local cur
+  local locals=""
+  [[ -e $HOME/.mybash/IDIR ]] && locals=$(cat $HOME/.mybash/IDIR | cut -d ':' -f 1)
+  cur="${COMP_WORDS[COMP_CWORD]}"
+  COMPREPLY=($(compgen -W "${locals}" $cur))
 }
 complete -F _mylgo mylgo
 
