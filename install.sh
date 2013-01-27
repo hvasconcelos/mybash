@@ -34,6 +34,7 @@ install_files(){
     cd $install_dir
     git fetch
     echo "Updating to $(cat .git/refs/remotes/origin/master)" 
+    # TODO
   fi
 }
 install_files

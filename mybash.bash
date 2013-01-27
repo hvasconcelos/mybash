@@ -4,9 +4,8 @@ export PS1='[\[\e[1;34m\]\u@\h\[\e[0m\]..\W] '
 
 myloaddir() {
   if [[ -d $1 ]]; then
-    files=`find $1 -name *.my`
+    files=`find $1 -name *.bash`
     for file in $files; do
-      #echo "Loading file: $file"
       . $file
     done
   else
@@ -23,11 +22,11 @@ myexpb(){
 }
 
 myladd(){
-  echo "$1:$2" >> $HOME/.bash/IDIR
+  echo "$1:$2" >> $HOME/.mybash/IDIR
 }
 
 mylls(){
-  dirs=`cat $HOME/.bash/IDIR`
+  dirs=`cat $HOME/.mybash/IDIR`
   for entry in $dirs; do
     name=`echo $entry | awk -F : '{print $1}'`
     dir=`echo $entry | awk -F : '{print $2}'`
@@ -37,7 +36,7 @@ mylls(){
 
 mylgo(){
   if [[ $1 ]]; then
-    dirs=`cat $HOME/.bash/IDIR`
+    dirs=`cat $HOME/.mybash/IDIR`
     for entry in $dirs; do
       name=`echo $entry | awk -F : '{print $1}'`
       dir=`echo $entry | awk -F : '{print $2}'`
@@ -54,15 +53,15 @@ mylgo(){
 
 _mylgo(){
   COMPREPLY=()
-  [[ -e ~/.bash/IDIR ]] && COMPREPLY=$(cat ~/.bash/IDIR | cut -d ':' -f 1)
+  [[ -e ~/.mybash/IDIR ]] && COMPREPLY=$(cat ~/.mybash/IDIR | cut -d ':' -f 1)
 }
 complete -F _mylgo mylgo
 
 myprofset(){
-  if [[ -e $HOME/.bash/profiles/$1.my ]]; then 
-    echo $1 > $HOME/.bash/PROFILE
+  if [[ -e $HOME/.mybash/profiles/$1.bash ]]; then 
+    echo $1 > $HOME/.mybash/PROFILE
     echo "Loading Profile [ $1 ]"
-    . $HOME/.bash/profiles/$1.my
+    . $HOME/.mybash/profiles/$1.bash
   else
     echo "Error: Profile $1 doesn't exist" 
   fi
@@ -87,6 +86,6 @@ myisuptodate(){
   cd $HOME
 }
 
-> $HOME/.bash/IDIR
-myloaddir $HOME/.bash/plugin
-myloaddir $HOME/.bash/alias
+> $HOME/.mybash/IDIR
+myloaddir $HOME/.mybash/plugin
+myloaddir $HOME/.mybash/alias

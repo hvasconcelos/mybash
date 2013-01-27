@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# myexpa /Users/heldervasconcelos/Desktop/Android/sdk/tools
+# myexpb /usr/rlocal/sbin
+# myexpa /usr/local/share/npm/bin
+# myladd projs /Users/heldervasconcelos/Desktop/beartouch/Projects
+# myladd blib /Users/heldervasconcelos/Desktop/beartouch/Libraries
+# myladd smss ~/Desktop/beartouch/Projects/sms_scheduler_git
+# myladd ddserver ~/Desktop/beartouch/Projects/droidserver/
+# export PS1='[\[\e[1;34m\]\u@macbookpro\[\e[0m\]..\W] '
