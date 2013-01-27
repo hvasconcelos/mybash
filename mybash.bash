@@ -2,6 +2,9 @@
 # .bash_rc
 export PS1='[\[\e[1;34m\]\u@\h\[\e[0m\]..\W] '
 
+install_dir=$HOME/.mybash
+install_log_file=$install_dir/mybash_install.log
+
 myloaddir() {
   if [[ -d $1 ]]; then
     files=`find $1 -name *.bash`
@@ -73,17 +76,25 @@ myprofls(){
  done
 }
 
-myisuptodate(){
-  cd $HOME/.mybash
-  git fetch -q origin 
-  here=`cat $HOME/.mybash/.git/refs/heads/master`
-  origin=`cat $HOME/.mybash/.git/refs/remotes/origin/master`
-  if [[ $here != $origin ]]; then
-    echo "Please update to version=[$origin]"
-    #echo "Updating to $origin"
-    #git pull origin master
-  fi
-  cd $HOME
+mybash_update(){
+    cd $install_dir
+    git fetch >> $install_log_file 2>&1
+    remote_mcomm=$(cat .git/refs/remotes/origin/master)
+    if [[ $(cat .git/refs/heads/master) != $(cat .git/refs/remotes/origin/master) ]]; then
+      echo "Updating mybash to $(cat .git/refs/remotes/origin/master)" 
+      if [[ $(git pull -f origin master >> $install_log_file 2>&1 ) -ne 0 ]]; then
+        echo "Faileed to update mybash"
+        return 1
+      fi
+    else
+      echo "mybash is up to date"
+      return 0
+    fi
+    echo "Updated mybash sucessfully to version $remote_mcomm"
+    return 0
+}
+mybash_version(){
+  echo "mybash version =$(cat .git/refs/heads/master)"
 }
 
 > $HOME/.mybash/IDIR
