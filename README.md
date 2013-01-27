@@ -12,12 +12,12 @@
 
 ### Create a new bash Profile 
 
-    > .mybash/profiles/<profile_name>.bash
-    chmod +ux .mybash/profiles/<profile_name>.bash
+    > ~/.mybash/profiles/<profile_name>.bash
+    chmod +ux ~/.mybash/profiles/<profile_name>.bash
    
 Example:
 
-    vim .mybash/profiles/macbookpro_home.bash
+    vim ~/.mybash/profiles/macbookpro_home.bash
     # Export after PATH 
     myexpa /Users/hcv/Desktop/Android/sdk/tools
     myexpa /Users/hcv/Desktop/Android/sdk/platform-tools
@@ -28,9 +28,9 @@ Example:
     myladd projs /Users/hcv/Desktop/beartouch/Projects
     myladd blib /Users/hcv/Desktop/beartouch/Libraries
 
-    chmod +ux .mybash/profiles/macbookpro_home.bash
+    chmod +ux ~/.mybash/profiles/macbookpro_home.bash
 
-### Select the profile in vim .bash_profile.bash
+### Select the profile in vim ~/.bash_profile.bash
     
     myprofset <profile_name>
     

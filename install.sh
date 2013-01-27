@@ -1,5 +1,5 @@
 #!/bin/bash
-# my bash install script
+# mybash install script
 # author: Helder Vasconcelos <heldervasc@bearstouch.com>
 
 install_dir=$HOME/.mybash
@@ -33,16 +33,14 @@ mybash_update(){
     remote_mcomm=$(cat .git/refs/remotes/origin/master)
     if [[ $(cat .git/refs/heads/master) != $(cat .git/refs/remotes/origin/master) ]]; then 
       echo "Updating mybash to $(cat .git/refs/remotes/origin/master)" 
-      if [[ $(git pull -f origin master >> $install_log_file 2>&1 ) -ne 0 ]]; then 
+      if [[ $(git pull -f origin master >> $install_log_file 2>&1) -ne 0 ]]; then 
         echo "Faileed to update mybash"
-        return 1
       fi
     else
       echo "mybash is up to date"
-      return 0
     fi 
     echo "Updated mybash sucessfully to version $remote_mcomm"
-    return 0
+    cd $HOME
 }
 
 install_files(){

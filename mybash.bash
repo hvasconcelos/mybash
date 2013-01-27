@@ -84,14 +84,12 @@ mybash_update(){
       echo "Updating mybash to $(cat $install_dir/.git/refs/remotes/origin/master)" 
       if [[ $(git pull -f origin master >> $install_log_file 2>&1 ) -ne 0 ]]; then
         echo "Faileed to update mybash"
-        return 1
       fi
     else
       echo "mybash is up to date"
-      return 0
     fi
     echo "Updated mybash sucessfully to version $remote_mcomm"
-    return 0
+    cd $HOME
 }
 mybash_version(){
   echo "mybash version =$(cat $install_dir/.git/refs/heads/master)"
