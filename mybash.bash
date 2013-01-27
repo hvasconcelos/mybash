@@ -57,6 +57,7 @@ mylgo(){
 _mylgo(){
   local cur
   local locals=""
+  COMPREPLY=()
   [[ -e $HOME/.mybash/IDIR ]] && locals=$(cat $HOME/.mybash/IDIR | cut -d ':' -f 1)
   cur="${COMP_WORDS[COMP_CWORD]}"
   COMPREPLY=($(compgen -W "${locals}" $cur))
