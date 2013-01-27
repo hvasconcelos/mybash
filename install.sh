@@ -27,24 +27,33 @@ first_time_install(){
   cat .bash_profile_temp > ${bash_login_files[0]}
 }
 
-update_local_code(){
+mybash_update(){
     cd $install_dir
-    git fetch >> $install_log_file
+    git fetch >> $install_log_file 2>&1
     remote_mcomm=$(cat .git/refs/remotes/origin/master)
-    echo "Updating to $(cat .git/refs/remotes/origin/master)" 
-    if [[ $(git push origin master) -ne 0 ]]; then 
-       echo "Faileed to update code"
+    if [[ $(cat .git/refs/heads/master) != $(cat .git/refs/remotes/origin/master) ]]; then 
+      echo "Updating mybash to $(cat .git/refs/remotes/origin/master)" 
+      if [[ $(git pull -f origin master >> $install_log_file 2>&1 ) -ne 0 ]]; then 
+        echo "Faileed to update mybash"
+        return 1
+      fi
     else
-       echo "Updated to version $remote_mcomm"
-    fi
+      echo "mybash is up to date"
+      return 0
+    fi 
+    echo "Updated mybash sucessfully to version $remote_mcomm"
+    return 0
 }
-
+mybash_version(){
+  echo "mybash version =$(cat .git/refs/heads/master)"
+}
 install_files(){
   
   if [[ ! -e $install_dir ]]; then 
     first_time_install
   else
-    update_local_code
+    echo "mybash already installed"
+    mybash_update
   fi
 }
 install_files
