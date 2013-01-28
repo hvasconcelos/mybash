@@ -6,7 +6,7 @@ install_dir=$HOME/.mybash
 install_log_file=$install_dir/mybash_install.log
 
 first_time_install(){
-  version=`cat .git/refs/remotes/origin/master`
+  version=`cat .git/refs/heads/master`
   echo "Installing mybash on your system commit=[$version]"
   mkdir -p $install_dir 
   bash_login_files="$HOME/.bash_profile
@@ -19,7 +19,7 @@ first_time_install(){
     if [[ -e $bl ]]; then 
       mybash_install=$(cat $bl  | grep -c ". \$HOME/.mybash/mybash.bash")
       if [[ $mybash_install -eq 0 ]]; then
-        cat .bash_profile_temp >> $bl
+        cat mybash_init_template >> $bl
       fi
       return 0
     fi
@@ -30,9 +30,9 @@ first_time_install(){
 mybash_update(){
     cd $install_dir
     git fetch >> $install_log_file 2>&1
-    remote_mcomm=$(cat .git/refs/remotes/origin/master)
-    if [[ $(cat .git/refs/heads/master) != $(cat .git/refs/remotes/origin/master) ]]; then 
-      echo "Updating mybash to $(cat .git/refs/remotes/origin/master)" 
+    remote_mcomm=$(cat .git/$(cat ~/.mybash/.git/refs/remotes/origin/HEAD | cut -d  ' ' -f 2 ))
+    if [[ $(cat .git/refs/heads/master) != $remote_mcomm ]]; then 
+      echo "Updating mybash to $remote_mcomm" 
       if [[ $(git pull -f origin master >> $install_log_file 2>&1) -ne 0 ]]; then 
         echo "Faileed to update mybash"
       fi
