@@ -1,9 +1,13 @@
-# Helder Vasconcelos Mac Book Pro <heldervasc@bearstouch.com>
-# .bash_rc
+#!/bin/bash
+# mybash main script
+# author: Helder Vasconcelos <heldervasc@bearstouch.com>
+
 export PS1='[\[\e[1;34m\]\u@\h\[\e[0m\]..\W] '
 
 install_dir=$HOME/.mybash
 install_log_file=$install_dir/mybash_install.log
+
+. $install_dir/installf.bash
 
 myloaddir() {
   if [[ -d $1 ]]; then
@@ -80,21 +84,6 @@ myprofls(){
  done
 }
 
-mybash_update(){
-    cd $install_dir
-    git fetch >> $install_log_file 2>&1
-    remote_mcomm=$(cat $install_dir/.git/refs/remotes/origin/master)
-    if [[ $(cat $install_dir/.git/refs/heads/master) != $(cat $install_dir/.git/refs/remotes/origin/master) ]]; then
-      echo "Updating mybash to $(cat $install_dir/.git/refs/remotes/origin/master)" 
-      if [[ $(git pull -f origin master >> $install_log_file 2>&1 ) -ne 0 ]]; then
-        echo "Faileed to update mybash"
-      fi
-    else
-      echo "mybash is up to date"
-    fi
-    echo "Updated mybash sucessfully to version $remote_mcomm"
-    cd $HOME
-}
 mybash_version(){
   echo "mybash version =$(cat $install_dir/.git/refs/heads/master)"
 }

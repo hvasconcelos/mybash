@@ -5,6 +5,8 @@
 install_dir=$HOME/.mybash
 install_log_file=$install_dir/mybash_install.log
 
+. ./installf.bash
+
 first_time_install(){
   version=`cat .git/refs/heads/master`
   echo "Installing mybash on your system commit=[$version]"
@@ -27,21 +29,6 @@ first_time_install(){
   cat .bash_profile_temp > ${bash_login_files[0]}
 }
 
-mybash_update(){
-    cd $install_dir
-    git fetch >> $install_log_file 2>&1
-    remote_mcomm=$(cat .git/$(cat ~/.mybash/.git/refs/remotes/origin/HEAD | cut -d  ' ' -f 2 ))
-    if [[ $(cat .git/refs/heads/master) != $remote_mcomm ]]; then 
-      echo "Updating mybash to $remote_mcomm" 
-      if [[ $(git pull -f origin master >> $install_log_file 2>&1) -ne 0 ]]; then 
-        echo "Faileed to update mybash"
-      fi
-    else
-      echo "mybash is up to date"
-    fi 
-    echo "Updated mybash sucessfully to version $remote_mcomm"
-    cd $HOME
-}
 
 install_files(){
   
