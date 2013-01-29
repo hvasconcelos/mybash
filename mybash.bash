@@ -1,6 +1,6 @@
 #!/bin/bash
 # mybash main script
-# author: Helder Vasconcelos <heldervasc@bearstouch.com>
+# author: Helder Vasconcelos 
 
 export PS1='[\[\e[1;34m\]\u@\h\[\e[0m\]..\W] '
 

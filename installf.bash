@@ -1,6 +1,6 @@
 #!/bin/bash
 # mybash  script
-# author: Helder Vasconcelos <heldervasc@bearstouch.com>
+# author: Helder Vasconcelos 
 
 mybash_update(){
 

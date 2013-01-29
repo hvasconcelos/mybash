@@ -1,11 +1,11 @@
 #!/bin/bash
 # mybash install script
-# author: Helder Vasconcelos <heldervasc@bearstouch.com>
+# author: Helder Vasconcelos
 
 install_dir=$HOME/.mybash
 install_log_file=$install_dir/mybash_install.log
 
-. ./installf.bash
+. installf.bash
 
 first_time_install(){
   version=`cat .git/refs/heads/master`

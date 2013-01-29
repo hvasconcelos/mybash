@@ -1,6 +1,3 @@
-####################################
-# Git alias
-########################################
 alias gita='git add'
 alias gitb='git branch'
 alias gitc='git commit'
