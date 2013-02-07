@@ -1,7 +1,10 @@
 alias gita='git add'
 alias gitb='git branch'
 alias gitc='git commit'
-alias gitct='git commit -u'
+# Add all the changes in tracked files
+alias gitau='git add -u'
+# Commit all the changes in the tracked files
+alias gitca='git commit -am'
 alias gitco='git checkout'
 alias gitm='git merge'
 # Remove Files
