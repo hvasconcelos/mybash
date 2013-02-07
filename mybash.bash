@@ -58,7 +58,7 @@ mylgo(){
   fi
 }
 
-my_enable_realtime_history(){
+myenable_realtime_history(){
 
     export HISTCONTROL=erasedups
     # ... and don't clobber the history when closing multiple shells
