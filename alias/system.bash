@@ -28,3 +28,4 @@ fi
 alias df='df -H'
 alias du='du -ch'
 alias getpkey='cat ~/.ssh/id_rsa.pub'
+alias fdosfiles="grep -Ilsr $'\r$'"
