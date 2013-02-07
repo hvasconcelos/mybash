@@ -1,7 +1,11 @@
 alias gita='git add'
 alias gitb='git branch'
+# To see which local branches you have that are merged into the 
+# branch you are currently on
+alias gitbm='git branch --merged'
+alias gitbnm='git branch --no-merged'
 alias gitc='git commit'
-# Add all the changes in tracked files
+# Stage all the changes in tracked files
 alias gitau='git add -u'
 # Commit all the changes in the tracked files
 alias gitca='git commit -am'
@@ -21,3 +25,11 @@ alias gitlg="git log --graph --full-history --all --color"
 alias gits='git status'
 alias gitd='git diff --color'
 alias gitdone='git diff --oneline --color'
+# Stashing commands
+alias gitsl='git stash list'
+alias gitss='git stash show'
+alias gitsc='git stash clear'
+alias gitsa='git satsh create'
+alias gitsd='git stash drop'
+# Git stash create with message
+alias gitscwm='git stash save'
