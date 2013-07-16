@@ -1,0 +1,8 @@
+alias gob='go build'
+alias goc='go clean'
+alias gog='go get'
+alias goi='go install'
+alias gor='go run'
+alias gotest='go test'
+alias got='go tool'
+alias govet='go vet'
