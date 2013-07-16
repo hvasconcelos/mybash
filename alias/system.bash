@@ -30,7 +30,7 @@ alias du='du -ch'
 alias getpkey='cat ~/.ssh/id_rsa.pub'
 alias fdosfiles="grep -Ilsr $'\r$'"
 alias d2unix="cat $1 | col -b > $1"
-alias xclipc="xclip -s c -i"
-alias xclipp="xclip -s c -o"
+alias xclipc="xclip -selection c -i"
+alias xclipp="xclip -selection c -o"
 
 
