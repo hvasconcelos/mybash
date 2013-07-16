@@ -1,14 +1,14 @@
 ## Colorize the ls output ##
-if [[ `uname -s` == 'Darwin' ]];then 
-  alias ls='ls -G'
-else
-  alias ls='ls --color=auto'
-fi
+`mybash_isMac` && alias ls='ls -G'
+`mybash_isLinux` && alias ls='ls --color=auto'
+
 ## Use a long listing format ##
 alias ll='ls -al'
+
 ## Show hidden files ##
 alias l.='ls -d .* -G'
 alias ..='cd ..'
+
 ## Colorize the grep command output for ease of use (good for log files)##
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
@@ -20,17 +20,15 @@ alias nowdate='date +"%d-%m-%Y"'
 alias vi=vim
 alias svi='sudo vi'
 alias vis='vim "+set si"'
-if [[ `uname -s` == 'Darwin' ]];then
-  alias ports='netstat -anl -f inet -f inet6'
-else
-  alias ports='netstat -tulanp'
-fi
+	
+`mybash_isMac` && alias ports='netstat -anl -f inet -f inet6'
+`mybash_isLinux` && alias ports='netstat -tulanp'
+
 alias df='df -H'
 alias du='du -ch'
 alias getpkey='cat ~/.ssh/id_rsa.pub'
 alias fdosfiles="grep -Ilsr $'\r$'"
 alias d2unix="cat $1 | col -b > $1"
-alias xclipc="xclip -selection c -i"
-alias xclipp="xclip -selection c -o"
 
-
+`mybash_isLinux` && alias xclipc="xclip -selection c -i"
+`mybash_isLinux` && alias xclipp="xclip -selection c -o"

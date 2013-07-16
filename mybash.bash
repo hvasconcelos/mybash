@@ -103,7 +103,18 @@ myprofls(){
 mybash_version(){
   echo "mybash version =$(cat $install_dir/.git/refs/heads/master)"
 }
-mybash_update
+
+mybash_isLinux(){
+	[[ `uname -s` == "Linux" ]] && return 0
+	return 1
+}
+
+mybash_isMac(){
+	[[ `uname -s` == "Darwin" ]] && return 0
+	return 1
+}
+
+#mybash_update
 > $HOME/.mybash/IDIR
 myloaddir $HOME/.mybash/plugin
 myloaddir $HOME/.mybash/alias
