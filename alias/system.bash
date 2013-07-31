@@ -30,5 +30,7 @@ alias getpkey='cat ~/.ssh/id_rsa.pub'
 alias fdosfiles="grep -Ilsr $'\r$'"
 alias d2unix="cat $1 | col -b > $1"
 
-`mybash_isLinux` && alias xclipc="xclip -selection c -i"
-`mybash_isLinux` && alias xclipp="xclip -selection c -o"
+`mybash_isLinux` && alias inclip="xclip -selection c -i"
+`mybash_isMac` && alias inclip="pbcopy"
+`mybash_isLinux` && alias outclip="xclip -selection c -o"
+`mybash_isMac` && alias outclip="pbpaste"
